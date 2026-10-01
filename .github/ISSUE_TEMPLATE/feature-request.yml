@@ -1,0 +1,25 @@
+name: Feature request
+description: Suggest a useful improvement without turning FFS into enterprise middleware.
+title: "[Feature] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: "This request and any attachments will be public. Remove personal details, workplace information and anything you do not want to share."
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like FFS to do?
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+    validations:
+      required: true
+  - type: dropdown
+    id: optional
+    attributes:
+      label: Should this be optional?
+      options: ["Yes", "No", "Not sure"]
