@@ -32,13 +32,18 @@ https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a
 
 ## Release status and update manifest
 
-[v0.9.5.1](https://github.com/UnknownDMEntity/ffs-not-now/releases/tag/v0.9.5.1) is a
-Windows x64 portable pre-release. The selected EXE is self-contained and unsigned.
-Its assets include `FFS_Not_Now.exe`, `SHA256SUMS.txt` and `README.txt`.
+The v0.9.5.1 Windows x64 portable pre-release is temporarily withdrawn while Windows
+launch behavior is investigated. Its existing assets are preserved in a draft release;
+the EXE is self-contained and unsigned. The site shows the pause instead of offering
+an unavailable download.
 
-The manifest uses the existing checker schema (`version`, `downloadUrl`,
-`releaseNotesUrl`) and points to the explicit pre-release URL. GitHub's
-`/releases/latest` route does not select pre-releases.
+The manifest keeps the existing checker fields (`version`, `downloadUrl`,
+`releaseNotesUrl`). During this pause, `version` is null and `status` is
+`download-paused`. Existing clients return an unsuccessful update check without
+advertising an unavailable update or claiming they are up to date. Resume with the
+numeric release version and explicit pre-release URL only after publication and
+desktop launch verification. GitHub's `/releases/latest` route does not select
+pre-releases.
 
 Automatic update checks remain off by default. Publish future manifest versions only
 after their downloads are available. Include the actual SHA-256 and signing status

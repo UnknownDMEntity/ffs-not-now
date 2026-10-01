@@ -1,5 +1,7 @@
 {
-  "version": "0.9.5.1",
-  "downloadUrl": "https://github.com/UnknownDMEntity/ffs-not-now/releases/tag/v0.9.5.1",
-  "releaseNotesUrl": "https://unknowndmentity.github.io/ffs-not-now/release-notes.html"
+  "version": null,
+  "downloadUrl": "https://github.com/UnknownDMEntity/ffs-not-now/releases",
+  "releaseNotesUrl": "https://unknowndmentity.github.io/ffs-not-now/release-notes.html",
+  "status": "download-paused",
+  "message": "Downloads are temporarily paused while Windows launch behavior is investigated."
 }
