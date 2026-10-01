@@ -32,14 +32,18 @@ https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a
 
 ## Release status and update manifest
 
-There is no public app binary yet. The manifest uses the v0.9.5 checker schema
-(`version`, `downloadUrl`, `releaseNotesUrl`) and points to the releases listing,
-which works even before a release exists. It does not certify that a download exists.
+[v0.9.5.1](https://github.com/UnknownDMEntity/ffs-not-now/releases/tag/v0.9.5.1) is a
+Windows x64 portable pre-release. The selected EXE is self-contained and unsigned.
+Its assets include `FFS_Not_Now.exe`, `SHA256SUMS.txt` and `README.txt`.
 
-Keep the app's update endpoint unconfigured until Pages works and a corresponding
-tested binary is actually available. Automatic update checks must remain off by default.
-Publish future manifest versions only after their downloads are available. Include the
-actual SHA-256 and signing status with each released binary.
+The manifest uses the existing checker schema (`version`, `downloadUrl`,
+`releaseNotesUrl`) and points to the explicit pre-release URL. GitHub's
+`/releases/latest` route does not select pre-releases.
+
+Automatic update checks remain off by default. Publish future manifest versions only
+after their downloads are available. Include the actual SHA-256 and signing status
+with each released binary. Windows installer and Microsoft Store distribution are
+separate future milestones.
 
 Upload only deliberately selected distribution files to public releases. Never upload
 the Distribution Prep ZIP, source archives, build folders, signing keys or private logs.
