@@ -1,20 +1,259 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Support — FFS, Not Now!</title><link rel="stylesheet" href="styles.css"></head><body><nav>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Help & feedback — FFS, Not Now!</title>
+  <meta name="description" content="Prepare a bug report or suggestion for FFS, Not Now! without a GitHub account.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="feedback-page">
+<nav aria-label="Main navigation">
   <strong>FFS, Not Now!</strong>
   <div>
     <a href="index.html">Home</a>
     <a href="privacy.html">Privacy</a>
     <a href="release-notes.html">Release notes</a>
-    <a href="support.html">Support</a>
+    <a href="support.html" aria-current="page">Help & feedback</a>
   </div>
-</nav><main><section>
-<h1>Support & feedback</h1><p>FFS does not send diagnostics automatically. Feedback is something you choose to submit.</p>
-<div class="actions">
-<a class="button primary" href="https://github.com/UnknownDMEntity/ffs-not-now/issues/new?template=bug-report.yml">Report a bug</a>
-<a class="button" href="https://github.com/UnknownDMEntity/ffs-not-now/issues/new?template=feature-request.yml">Request a feature</a>
-</div>
-<p class="muted">A GitHub account is needed to submit feedback. Reports, comments and attachments are public. Please remove personal details, workplace information and anything else you do not want to share before submitting.</p>
-</section></main><footer>
+</nav>
+<main>
+  <section class="feedback-intro">
+    <p class="eyebrow">A little help, without the technical hurdles</p>
+    <h1>Help us improve FFS.</h1>
+    <p>Something went wrong? Have an idea? Write it here and review your message. You do not need a GitHub account to use this page.</p>
+    <div class="notice" id="delivery-notice">
+      <strong>Feedback inbox coming soon.</strong>
+      You can prepare, copy or save a message now. Sending is unavailable until our support inbox is ready.
+    </div>
+  </section>
+  <div class="feedback-layout">
+    <section class="card feedback-editor" aria-labelledby="message-heading">
+      <h2 id="message-heading">What would you like to tell us?</h2>
+      <p class="muted">Nothing is sent automatically. Fields marked “required” help us understand your message.</p>
+      <noscript><p class="notice">This draft editor needs JavaScript. The optional GitHub links below still work.</p></noscript>
+      <div id="feedback-form" role="form" aria-labelledby="message-heading">
+        <div class="field">
+          <label for="kind">I want to…</label>
+          <select id="kind" name="kind">
+            <option value="bug">Report something that is not working</option>
+            <option value="feature">Suggest an improvement</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="subject">Give it a short title <span class="muted">(required)</span></label>
+          <input id="subject" name="subject" type="text" maxlength="120" required placeholder="For example: The reminder did not appear">
+        </div>
+        <div class="field">
+          <label id="description-label" for="description">What happened? <span class="muted">(required)</span></label>
+          <textarea id="description" name="description" rows="5" maxlength="6000" required aria-describedby="description-help"></textarea>
+          <small id="description-help">Describe it in your own words. Technical language is not needed.</small>
+        </div>
+        <div class="field" id="expected-field">
+          <label for="expected">What did you expect? <span class="muted">(optional)</span></label>
+          <textarea id="expected" name="expected" rows="2" maxlength="2000"></textarea>
+        </div>
+        <div class="field" id="steps-field">
+          <label for="steps">How can we make it happen again? <span class="muted">(optional)</span></label>
+          <textarea id="steps" name="steps" rows="3" maxlength="3000" placeholder="For example: Open Settings, then choose About…"></textarea>
+        </div>
+        <div class="field">
+          <label for="version">FFS version <span class="muted">(optional)</span></label>
+          <input id="version" name="version" type="text" maxlength="40" placeholder="Find this in FFS → Settings → About">
+        </div>
+        <details class="diagnostics-details">
+          <summary>Add diagnostic information (optional)</summary>
+          <div class="field">
+            <label for="diagnostics">Diagnostic text</label>
+            <textarea id="diagnostics" name="diagnostics" rows="5" maxlength="6000" aria-describedby="diagnostics-help"></textarea>
+            <small id="diagnostics-help">You can paste FFS → Settings → About → Copy diagnostic information. Review it first and remove anything you do not want to share.</small>
+          </div>
+        </details>
+        <p class="muted privacy-hint">Do not include passwords, personal documents or confidential workplace information. Your draft stays on this page; it is not saved automatically.</p>
+        <button class="button primary" type="button" id="review-message" disabled>Review my message</button>
+      </div>
+    </section>
+    <aside class="feedback-help" aria-label="Feedback help">
+      <section class="card">
+        <h2>Three simple steps</h2>
+        <ol class="feedback-steps">
+          <li><strong>Write.</strong> Tell us what happened or what you would like.</li>
+          <li><strong>Review.</strong> Check your message and remove anything private.</li>
+          <li><strong>Keep a copy.</strong> Save it until our feedback inbox is available.</li>
+        </ol>
+        <p class="muted">No message has been delivered just because you filled in this page.</p>
+      </section>
+      <section class="card">
+        <h2>Need help finding FFS?</h2>
+        <p>Look for the FFS icon near the Windows clock. It may be inside the little arrow menu. Right-click it to open Settings or exit the app.</p>
+        <a href="release-notes.html">Check the current release status</a>
+      </section>
+    </aside>
+  </div>
+  <section class="card message-review" id="review-section" aria-labelledby="review-heading" hidden>
+    <h2 id="review-heading">Review your message</h2>
+    <p>Copying or saving creates a local copy. It does not send your feedback.</p>
+    <label class="visually-hidden" for="message-preview">Prepared feedback message</label>
+    <textarea id="message-preview" rows="14" readonly spellcheck="false"></textarea>
+    <div class="actions">
+      <button class="button primary" type="button" id="copy-message">Copy message</button>
+      <a class="button" id="save-message" download="FFS-feedback.txt">Save as a text file</a>
+      <button class="button" type="button" id="email-message" disabled>Email delivery not available yet</button>
+    </div>
+    <p id="message-status" role="status" aria-live="polite"></p>
+  </section>
+  <section>
+    <details class="advanced-feedback">
+      <summary>Advanced: public feedback on GitHub</summary>
+      <p>GitHub is a website we use to track development. These optional links require a GitHub account and may first show a sign-in page.</p>
+      <p><strong>Reports, comments and attachments there are public.</strong> Review what you share. Signing in does not make a report private.</p>
+      <div class="actions">
+        <a class="button" href="https://github.com/UnknownDMEntity/ffs-not-now/issues/new?template=bug-report.yml">Public GitHub bug report</a>
+        <a class="button" href="https://github.com/UnknownDMEntity/ffs-not-now/issues/new?template=feature-request.yml">Public GitHub feature request</a>
+      </div>
+    </details>
+  </section>
+</main>
+<footer>
   <strong>FFS, Not Now!</strong><br>
-  <span>Local-first. No telemetry. No account. No pretending a reminder app needs to know your life story.</span>
-</footer></body></html>
+  <span>Local-first. No telemetry. No account required to use FFS or prepare feedback.</span>
+  <p><a href="privacy.html">How this page handles your information</a></p>
+</footer>
+<script>
+(() => {
+  "use strict";
+  // Set only after a dedicated support inbox is ready and approved for public display.
+  // Empty means no email draft or delivery is offered.
+  const supportEmail = "";
+  const deliveryReady = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i.test(supportEmail);
+  const form = document.getElementById("feedback-form");
+  const kind = document.getElementById("kind");
+  const subject = document.getElementById("subject");
+  const description = document.getElementById("description");
+  const expected = document.getElementById("expected");
+  const steps = document.getElementById("steps");
+  const version = document.getElementById("version");
+  const diagnostics = document.getElementById("diagnostics");
+  const review = document.getElementById("review-section");
+  const preview = document.getElementById("message-preview");
+  const status = document.getElementById("message-status");
+  const emailButton = document.getElementById("email-message");
+  const saveLink = document.getElementById("save-message");
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("type") === "feature") kind.value = "feature";
+  const requestedVersion = params.get("version") || "";
+  if (/^\d+\.\d+\.\d+(?:\.\d+)?$/.test(requestedVersion)) version.value = requestedVersion;
+  let message = "";
+  let downloadURL = "";
+
+  function updateKind() {
+    const feature = kind.value === "feature";
+    document.getElementById("description-label").textContent =
+      feature ? "What would you like to change? (required)" : "What happened? (required)";
+    subject.placeholder = feature ? "For example: A gentler reminder sound" : "For example: The reminder did not appear";
+    document.getElementById("expected-field").hidden = feature;
+    document.getElementById("steps-field").hidden = feature;
+    expected.disabled = feature;
+    steps.disabled = feature;
+  }
+
+  function buildMessage() {
+    const feature = kind.value === "feature";
+    const lines = [
+      "FFS, Not Now! — " + (feature ? "Feature suggestion" : "Bug report"),
+      "",
+      "Title: " + subject.value.trim(),
+      "FFS version: " + (version.value.trim() || "Not provided"),
+      "",
+      feature ? "Suggested improvement" : "What happened",
+      description.value.trim()
+    ];
+    if (!feature && expected.value.trim()) lines.push("", "Expected behaviour", expected.value.trim());
+    if (!feature && steps.value.trim()) lines.push("", "Steps to reproduce", steps.value.trim());
+    if (diagnostics.value.trim()) lines.push("", "Optional diagnostic information", diagnostics.value.trim());
+    return lines.join("\r\n");
+  }
+
+  function resetReview() {
+    if (!review.hidden) {
+      review.hidden = true;
+      message = "";
+      preview.value = "";
+      status.textContent = "";
+      if (downloadURL) URL.revokeObjectURL(downloadURL);
+      downloadURL = "";
+      saveLink.removeAttribute("href");
+    }
+  }
+
+  if (deliveryReady) {
+    document.getElementById("delivery-notice").textContent =
+      "Feedback goes to " + supportEmail + ". Review your message, then open an email draft. You send it yourself from your email app.";
+    emailButton.disabled = false;
+    emailButton.textContent = "Open an email draft";
+    document.querySelector(".feedback-steps li:last-child").textContent =
+      "Send when ready. Open an email draft, check it and send it from your email app.";
+  }
+
+  kind.addEventListener("change", updateKind);
+  form.addEventListener("input", () => {
+    subject.setCustomValidity("");
+    description.setCustomValidity("");
+    resetReview();
+  });
+  form.addEventListener("change", resetReview);
+  const reviewButton = document.getElementById("review-message");
+  reviewButton.addEventListener("click", () => {
+    subject.setCustomValidity(subject.value.trim() ? "" : "Please add a short title.");
+    description.setCustomValidity(description.value.trim() ? "" : "Please describe your message.");
+    for (const field of form.querySelectorAll("input, textarea")) {
+      if (!field.disabled && !field.reportValidity()) return;
+    }
+    message = buildMessage();
+    preview.value = message;
+    if (downloadURL) URL.revokeObjectURL(downloadURL);
+    downloadURL = URL.createObjectURL(new Blob([message], { type: "text/plain;charset=utf-8" }));
+    saveLink.href = downloadURL;
+    saveLink.download = kind.value === "feature" ? "FFS-feature-suggestion.txt" : "FFS-bug-report.txt";
+    review.hidden = false;
+    status.textContent = "Message prepared. Nothing has been sent.";
+    preview.focus();
+    review.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+  document.getElementById("copy-message").addEventListener("click", async () => {
+    try {
+      if (!navigator.clipboard) throw new Error("Clipboard unavailable");
+      await Promise.race([
+        navigator.clipboard.writeText(message),
+        new Promise((_, reject) => window.setTimeout(() => reject(new Error("Clipboard timed out")), 1500))
+      ]);
+      status.textContent = "Message copied. Nothing has been sent.";
+    } catch {
+      preview.focus();
+      preview.select();
+      if (document.execCommand("copy")) {
+        status.textContent = "Message copied. Nothing has been sent.";
+      } else {
+        status.textContent = "Your message is selected. Press Ctrl+C (or use your device's Copy command) to copy it. Nothing has been sent.";
+      }
+    }
+  });
+  saveLink.addEventListener("click", () => {
+    status.textContent = "Text-file download requested. Nothing has been sent.";
+  });
+  emailButton.addEventListener("click", () => {
+    if (!deliveryReady || !message) return;
+    const mailSubject = "FFS " + (kind.value === "feature" ? "suggestion: " : "bug report: ") + subject.value.trim();
+    const emailBody = message.length <= 1800 ? message :
+      "I have prepared feedback about FFS, Not Now! Please see the text file I will attach.\r\n\r\nTitle: " + subject.value.trim();
+    window.location.href = "mailto:" + supportEmail + "?subject=" + encodeURIComponent(mailSubject) + "&body=" + encodeURIComponent(emailBody);
+    status.textContent = message.length <= 1800 ?
+      "Email draft requested. Review it and send it from your email app; this page has not sent anything." :
+      "Email draft requested. Save your message as a text file and attach it yourself before sending.";
+  });
+  updateKind();
+  reviewButton.disabled = false;
+})();
+</script>
+</body>
+</html>

@@ -32,10 +32,11 @@ https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a
 
 ## Release status and update manifest
 
-The v0.9.5.1 Windows x64 portable pre-release is temporarily withdrawn while Windows
-launch behavior is investigated. Its existing assets are preserved in a draft release;
-the EXE is self-contained and unsigned. The site shows the pause instead of offering
-an unavailable download.
+The v0.9.5.1 Windows x64 portable pre-release is temporarily withdrawn while remaining
+release checks and feedback setup are completed. The user verified its local launch
+and About destinations on October 7, 2026. Its existing assets are preserved in a draft
+release; the EXE is self-contained and unsigned. The site shows the pause instead of
+offering an unavailable download.
 
 The manifest keeps the existing checker fields (`version`, `downloadUrl`,
 `releaseNotesUrl`). During this pause, `version` is null and `status` is
@@ -55,5 +56,16 @@ the Distribution Prep ZIP, source archives, build folders, signing keys or priva
 
 ## Feedback
 
-Bug and feature forms live in `.github/ISSUE_TEMPLATE/`. Submissions and attachments
-are public; the site and forms explain this before users share diagnostics.
+support.html is the ordinary-user feedback page. It prepares bug reports and
+suggestions in the browser, with preview, copy and text-file download. Drafts
+are not uploaded or stored automatically; no GitHub account is needed.
+
+The dedicated support inbox is not ready. Email delivery is clearly unavailable.
+When an inbox is ready and approved for public display, set supportEmail in the
+page and update the privacy text to explain email delivery. The email option opens
+the user's mail app for their own review and send; it is not background delivery.
+Long messages use a text-file attachment the user adds themselves.
+
+Optional GitHub forms remain under Advanced. Templates are in
+.github/ISSUE_TEMPLATE/. Submissions and attachments there are public and require
+a GitHub account. No private app source is published here.
