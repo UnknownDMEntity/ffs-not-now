@@ -23,8 +23,8 @@
     <h1>Help us improve FFS.</h1>
     <p>Something went wrong? Have an idea? Write it here and review your message. You do not need a GitHub account to use this page.</p>
     <div class="notice" id="delivery-notice">
-      <strong>Feedback inbox coming soon.</strong>
-      You can prepare, copy or save a message now. Sending is unavailable until our support inbox is ready.
+      <strong>Our feedback inbox is ready.</strong>
+      Review your message, then open an email draft to ffsnotnowhelpdesk@outlook.com. You send it yourself from your email app.
     </div>
   </section>
   <div class="feedback-layout">
@@ -79,9 +79,14 @@
         <ol class="feedback-steps">
           <li><strong>Write.</strong> Tell us what happened or what you would like.</li>
           <li><strong>Review.</strong> Check your message and remove anything private.</li>
-          <li><strong>Keep a copy.</strong> Save it until our feedback inbox is available.</li>
+          <li><strong>Send when ready.</strong> Open an email draft, check it and send it from your email app.</li>
         </ol>
         <p class="muted">No message has been delivered just because you filled in this page.</p>
+      </section>
+      <section class="card">
+        <h2>Prefer to write an email?</h2>
+        <p>Send your feedback to <a href="mailto:ffsnotnowhelpdesk@outlook.com">ffsnotnowhelpdesk@outlook.com</a>.</p>
+        <p class="muted">If no email app opens, copy your reviewed message, open your usual email website or app, and paste it into a new email to this address.</p>
       </section>
       <section class="card">
         <h2>Need help finding FFS?</h2>
@@ -98,7 +103,7 @@
     <div class="actions">
       <button class="button primary" type="button" id="copy-message">Copy message</button>
       <a class="button" id="save-message" download="FFS-feedback.txt">Save as a text file</a>
-      <button class="button" type="button" id="email-message" disabled>Email delivery not available yet</button>
+      <button class="button" type="button" id="email-message" disabled>Open an email draft</button>
     </div>
     <p id="message-status" role="status" aria-live="polite"></p>
   </section>
@@ -122,9 +127,9 @@
 <script>
 (() => {
   "use strict";
-  // Set only after a dedicated support inbox is ready and approved for public display.
-  // Empty means no email draft or delivery is offered.
-  const supportEmail = "";
+  // Dedicated public support address confirmed by the owner on October 8, 2026.
+  // Email drafts are opened only by the visitor's explicit choice.
+  const supportEmail = "ffsnotnowhelpdesk@outlook.com";
   const deliveryReady = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i.test(supportEmail);
   const form = document.getElementById("feedback-form");
   const kind = document.getElementById("kind");
@@ -244,10 +249,13 @@
   emailButton.addEventListener("click", () => {
     if (!deliveryReady || !message) return;
     const mailSubject = "FFS " + (kind.value === "feature" ? "suggestion: " : "bug report: ") + subject.value.trim();
-    const emailBody = message.length <= 1800 ? message :
-      "I have prepared feedback about FFS, Not Now! Please see the text file I will attach.\r\n\r\nTitle: " + subject.value.trim();
-    window.location.href = "mailto:" + supportEmail + "?subject=" + encodeURIComponent(mailSubject) + "&body=" + encodeURIComponent(emailBody);
-    status.textContent = message.length <= 1800 ?
+    const makeDraftURL = body => "mailto:" + supportEmail + "?subject=" + encodeURIComponent(mailSubject) + "&body=" + encodeURIComponent(body);
+    let draftURL = makeDraftURL(message);
+    const needsAttachment = draftURL.length > 2000;
+    if (needsAttachment) draftURL = makeDraftURL(
+      "I have prepared feedback about FFS, Not Now! Please see the text file I will attach.\r\n\r\nTitle: " + subject.value.trim());
+    window.location.href = draftURL;
+    status.textContent = !needsAttachment ?
       "Email draft requested. Review it and send it from your email app; this page has not sent anything." :
       "Email draft requested. Save your message as a text file and attach it yourself before sending.";
   });

@@ -60,11 +60,13 @@ support.html is the ordinary-user feedback page. It prepares bug reports and
 suggestions in the browser, with preview, copy and text-file download. Drafts
 are not uploaded or stored automatically; no GitHub account is needed.
 
-The dedicated support inbox is not ready. Email delivery is clearly unavailable.
-When an inbox is ready and approved for public display, set supportEmail in the
-page and update the privacy text to explain email delivery. The email option opens
-the user's mail app for their own review and send; it is not background delivery.
-Long messages use a text-file attachment the user adds themselves.
+The owner confirmed the dedicated support inbox ffsnotnowhelpdesk@outlook.com on
+October 8, 2026. The email option opens the visitor's mail app for their own review
+and send; it is not background delivery. If the encoded email-draft URL would be
+longer than 2000 characters, the page asks the visitor to save and attach the text
+file themselves. A visible address and copy instructions support visitors whose
+browser does not open an email app. The privacy page explains email delivery and
+storage. No test email has been sent by the assistant.
 
 Optional GitHub forms remain under Advanced. Templates are in
 .github/ISSUE_TEMPLATE/. Submissions and attachments there are public and require
