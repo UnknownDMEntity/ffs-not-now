@@ -32,14 +32,18 @@ https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a
 
 ## Release status and update manifest
 
-v0.9.5.3 is the Windows x64 portable pilot release. It is self-contained and
-unsigned; the exact EXE is 51,712,736 bytes with SHA-256
-3747E3D895D5979789197A312F252C1AF8DBBC904DAC21A8B6F4C68D6A82C1E7.
-The user confirmed a successful second-machine launch and readable viewers
-without an antivirus block. Earlier v0.9.5.1 assets remain in their withdrawn draft.
+v0.9.5.4 is the Windows x64 portable pilot release. It is self-contained and
+unsigned; the exact EXE is 51,736,687 bytes with SHA-256
+C5A124EB80BC0537C12664E804B0E89EB84F0CEA34CA355E708035E6D6967A16.
+New users get Windows sign-in startup after the first launch and Toast reminders.
+Existing saved choices are preserved. The owner confirmed launch and matching
+preferences on the development laptop; its startup command points to the new EXE.
+DeepAV prevented this exact build until the owner saved a false-positive entry.
+The restored file matched the original checksum. Earlier v0.9.5.3 remains
+available; v0.9.5.1 assets remain in their withdrawn draft.
 
 The manifest retains the checker fields version, downloadUrl and releaseNotesUrl.
-It uses numeric version 0.9.5.3 and the explicit /releases/tag/v0.9.5.3 page.
+It uses numeric version 0.9.5.4 and the explicit /releases/tag/v0.9.5.4 page.
 status=pilot and sha256 are informational: existing clients do not use them for
 channel filtering or automatic binary verification. Any FFS user who chooses a
 check uses this same endpoint; the pilot label is not an access restriction.

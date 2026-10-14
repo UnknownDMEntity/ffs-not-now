@@ -1,7 +1,7 @@
 {
-  "version": "0.9.5.3",
-  "downloadUrl": "https://github.com/UnknownDMEntity/ffs-not-now/releases/tag/v0.9.5.3",
+  "version": "0.9.5.4",
+  "downloadUrl": "https://github.com/UnknownDMEntity/ffs-not-now/releases/tag/v0.9.5.4",
   "releaseNotesUrl": "https://unknowndmentity.github.io/ffs-not-now/release-notes.html",
   "status": "pilot",
-  "sha256": "3747e3d895d5979789197a312f252c1af8dbbc904dac21a8b6f4c68d6a82c1e7"
+  "sha256": "c5a124eb80bc0537c12664e804b0e89eb84f0cea34ca355e708035e6d6967a16"
 }
