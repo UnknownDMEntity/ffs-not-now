@@ -56,3 +56,5 @@ summary{cursor:pointer;font-weight:600}
 .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 @media(max-width:760px){.feedback-layout{grid-template-columns:1fr}.feedback-help{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}.feedback-intro{margin-top:24px}.feedback-editor,.message-review{padding:18px}.message-review .actions{flex-direction:column;align-items:stretch}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.release-checksum{overflow-wrap:anywhere}

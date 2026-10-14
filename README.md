@@ -32,27 +32,26 @@ https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a
 
 ## Release status and update manifest
 
-The v0.9.5.1 Windows x64 portable pre-release is temporarily withdrawn while remaining
-release checks and feedback setup are completed. The user verified its local launch
-and About destinations on October 7, 2026. Its existing assets are preserved in a draft
-release; the EXE is self-contained and unsigned. The site shows the pause instead of
-offering an unavailable download.
+v0.9.5.3 is the Windows x64 portable pilot release. It is self-contained and
+unsigned; the exact EXE is 51,712,736 bytes with SHA-256
+3747E3D895D5979789197A312F252C1AF8DBBC904DAC21A8B6F4C68D6A82C1E7.
+The user confirmed a successful second-machine launch and readable viewers
+without an antivirus block. Earlier v0.9.5.1 assets remain in their withdrawn draft.
 
-The manifest keeps the existing checker fields (`version`, `downloadUrl`,
-`releaseNotesUrl`). During this pause, `version` is null and `status` is
-`download-paused`. Existing clients return an unsuccessful update check without
-advertising an unavailable update or claiming they are up to date. Resume with the
-numeric release version and explicit pre-release URL only after publication and
-desktop launch verification. GitHub's `/releases/latest` route does not select
-pre-releases.
+The manifest retains the checker fields version, downloadUrl and releaseNotesUrl.
+It uses numeric version 0.9.5.3 and the explicit /releases/tag/v0.9.5.3 page.
+status=pilot and sha256 are informational: existing clients do not use them for
+channel filtering or automatic binary verification. Any FFS user who chooses a
+check uses this same endpoint; the pilot label is not an access restriction.
 
-Automatic update checks remain off by default. Publish future manifest versions only
-after their downloads are available. Include the actual SHA-256 and signing status
-with each released binary. Windows installer and Microsoft Store distribution are
-separate future milestones.
+Checks are optional and off by default. They announce a newer version and offer
+the release page; downloading and switching EXEs remain manual. Publish and
+verify future assets before advancing the manifest. /releases/latest does not
+select pre-releases. Installer/Store packaging remains a future milestone.
 
-Upload only deliberately selected distribution files to public releases. Never upload
-the Distribution Prep ZIP, source archives, build folders, signing keys or private logs.
+Public assets contain only the selected EXE, checksum and user instructions.
+Keep source archives, Distribution Prep ZIPs, build folders, keys and private logs
+out of this public repository and its releases.
 
 ## Feedback
 

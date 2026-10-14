@@ -1,7 +1,7 @@
 {
-  "version": null,
-  "downloadUrl": "https://github.com/UnknownDMEntity/ffs-not-now/releases",
+  "version": "0.9.5.3",
+  "downloadUrl": "https://github.com/UnknownDMEntity/ffs-not-now/releases/tag/v0.9.5.3",
   "releaseNotesUrl": "https://unknowndmentity.github.io/ffs-not-now/release-notes.html",
-  "status": "download-paused",
-  "message": "Downloads are temporarily paused while Windows launch behavior is investigated."
+  "status": "pilot",
+  "sha256": "3747e3d895d5979789197a312f252c1af8dbbc904dac21a8b6f4c68d6a82c1e7"
 }
